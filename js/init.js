@@ -102,3 +102,17 @@ function clearcanvas() {
 function turtle_setup() {
   if (turtle) turtle.turtle.setup();
 }
+
+let tok;
+function tokenize() {
+  const source_code = code.value;
+  textOutput.innerHTML = '';
+  tok = new Tokenizer();
+  tok.load(source_code);
+  while (true) {
+    const t = tok.next();
+    textOutput.innerHTML += `${t.toString()}<br>\n`;
+    if (t.type == 'eof') break;
+  }
+  textOutput.innerHTML += '<br>';
+}

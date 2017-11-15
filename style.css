@@ -12,7 +12,7 @@ main{
     main {
         display: grid;
         grid-template-columns: 512px 512px;
-        grid-template-rows: 130px 550px 500px 100px;
+        grid-template-rows: 130px auto 500px 100px;
         grid-template-areas: "headerArea headerArea"
             "outputArea codeArea"
             "helpArea helpArea"
@@ -42,6 +42,9 @@ main{
     border-style: solid;
     border-color: #5370C0;
     position: relative;
+}
+
+#textOutput {
 }
 
 #canvas {
