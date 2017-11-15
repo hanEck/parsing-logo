@@ -12,10 +12,11 @@
 
   </head>
   <body onload="init('canvas','turtle','input','textOutput', '#top .inner', 'code'); clearcanvas(); turtle.turtle.setup(); run(1,false);">
+    <main>
 
-    <div id="main">
-      <form id="input" action="/" method="post" onSubmit="this.img.value = canvas.toDataURL().replace('data:image/png;base64,','')">
-        <div id="top"><div class="inner"><h1>papert&#8213;logo in your browser, 2017 version</h1>
+      <header>
+        <h1>papert&#8213;logo in your browser, 2017 version</h1>
+        <p>
           <a href="programs/square1.txt">square1</a> | 
           <a href="programs/square2.txt">square2</a> | 
           <a href="programs/square3.txt">square3</a> | 
@@ -27,52 +28,45 @@
           <a href="programs/tree.txt">tree</a> | 
           <a href="programs/hilbert.txt">hilbert</a> | 
           <a href="programs/koch.txt">koch</a>
-          </div>
+        </p>
+      </header>
+
+
+      <div id="code_pane">
+        <textarea name="code" id="code" rows="80" cols="20" spellcheck="false"></textarea>
+
+        <div>
+          <input type="button" onClick="run(25,true);" value="run slowly">
+          <input type="button" onClick="run(5,false);" value="run normally" style="font-weight: bold;">
+          <input type="button" onClick="run(1,false);" value="run fast">
+          <input type="button" onClick="stop();" value="stop program">
+          <input type="hidden" name="img" />
         </div>
-        <div id="content">
-          <div class="inner">
-            <div>
-              <textarea name="code" id="code" rows="80" cols="20" spellcheck="false"></textarea>
-            </div>
-            <div style="margin: 5px;">
-              <input type="button" onClick="run(25,true);" value="run slowly" />
-              <input type="button" onClick="run(5,false);" value="run normally" style="font-weight: bold;"/>
-              <input type="button" onClick="run(1,false);" value="run fast" />
-              <input type="button" onClick="stop();" value="stop program" />
-              <input type="hidden" name="img" />
-            </div>
-
-          </div>
-        </div>
-
-        <div id="left">
-          <div class="inner">
-            <div id="textOutput"></div>
-            <div id="turtle">
-              <img width="20" height="20" src="turtle.svg"/>
-            </div>
-            <canvas id="canvas" width="500" height="500">
-            Your browser doesn't support canvas tags. Please upgrade to a recent version of Firefox or Opera.
-            </canvas>
-            <span style="float: left; margin-right: auto;">
-              <input type="button" onClick="document.location.href = canvas.toDataURL().replace('image/png', 'image/octet-stream')" value="save as png" />
-            </span>
-            <span style="float: right;margin-left: auto; margin-right: 20px;">
-              <input type="button" onClick="clearcanvas(); turtle.turtle.setup();" value="clear" />
-            </span>
-          </div>
-
-        </div>
-      </form>
-
-      <div id="footer">
-        <span style="float: right;margin-left: auto; margin-right: 20px; color: white;">
-          this is free software, the original
-          <a href="https://github.com/rmmh/papert">papert is hosted on Github</a>
-        </span>
-        &nbsp;
       </div>
+
+      <div id="output_pane">
+        <div id="textOutput"></div>
+        <div id="turtle">
+          <img width="20" height="20" src="turtle.svg"/>
+        </div>
+        <canvas id="canvas" width="500" height="500">
+        </canvas>
+        <div>
+          <input type="button" onClick="document.location.href = canvas.toDataURL().replace('image/png', 'image/octet-stream')" value="save as png">
+          <input type="button" onClick="clearcanvas(); turtle.turtle.setup();" value="clear">
+        </div>
+      </div>
+
       <iframe id="notes" src="help.html"></iframe>
-    </div>
+
+      <footer>
+        <p>this is free software.
+        <!-- 
+          the original project,
+          <a href="https://github.com/rmmh/papert">papert</a>, is hosted on github
+        -->
+        </p>
+      </footer>
+    </main>
   </body>
 </html>
