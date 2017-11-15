@@ -1,0 +1,24 @@
+Reset
+PU
+BACKWARD 200
+PD
+TO Y :length
+fd :length
+lt 45
+fd :length/2
+IF :length > 5 [Y :length *(2 /3)]
+lt 180
+fd :length/2
+
+lt 90
+fd :length/2
+IF :length > 5 [Y :length *(2 /3)]
+lt 180
+fd :length/2
+lt 45
+fd :length
+lt 180
+END
+
+Y 80
+

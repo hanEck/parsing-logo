@@ -1,0 +1,5 @@
+reset
+
+repeat 100
+[fw random 40
+rt random 360]

@@ -1,0 +1,20 @@
+to spiral  :w  :a :x :c  :ww :d 
+  circle :d
+  if :c = 0 [stop]
+  penwidth :ww
+  color [255-:d*5 0+:d*20 0+:d*50]
+  pu  
+  lt :x
+  fw :w
+  
+  bw :w
+  rt :x
+  fw :w
+  pd 
+  rt :a 
+  spiral :w +3 :a :x+0.0 :c -1 :ww + 0.0 :d+0.1375
+  
+end
+
+reset
+spiral 1 137.5 0 200 0 1.375

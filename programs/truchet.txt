@@ -1,0 +1,55 @@
+;Truchet Tiles.
+;superstitionfreeblog@gmail.com
+
+to truchet :dit :len
+    ifelse :dit = 1 [
+        left 180
+        pu
+        forward :len
+        pd
+        left 135
+        forward (:len * sqrt 2)
+        pu
+        left 135
+        forward :len
+        right 90
+        pd
+        ]
+        [
+        right 135
+        forward (:len * sqrt 2)
+        pu
+        right 180
+        forward (:len * sqrt 2)
+        pd
+        right 45
+        ]
+end
+
+cs
+setxy 0 0
+make "nums 15 ;number of squares per row
+make "blens (500 / :nums)
+penwidth 3
+repeat :nums [
+  repeat :nums [
+    truchet random 2 :blens    
+    pu
+    right 90
+    forward :blens
+    left 90
+    pd
+    ]
+    left 90
+    pu
+    forward (500)
+    left 90
+    forward :blens
+    left 180
+    pd
+    ]
+
+
+
+
+        
