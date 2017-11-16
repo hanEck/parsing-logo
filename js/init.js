@@ -36,6 +36,10 @@ function loadProgram(event) {
 }
 
 function init(canvas_id = 'canvas', text_output_id = 'textOutput', turtle_id = 'turtle', link_holder = 'header p', code_id = 'code') {
+  if (document.location=="http://bjelline.pages.mediacube.at/parsing-logo-solution/") {
+    canvas = document.getElementById('dev').style.display='none';
+    canvas = document.getElementById('prod').style.display='block';
+  }
   // console.log(`will set global variables based on: canvas_id=${canvas_id}, turtle_id=${turtle_id}, link_holder=${link_holder}, code_id=${code_id}`);
   canvas = document.getElementById(canvas_id);
   sprite = document.getElementById(turtle_id);

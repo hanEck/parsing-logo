@@ -1,6 +1,14 @@
 body,header,footer,div,canvas,textarea {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
+
+
+h2, h2 a:link, h2 a:visited {
+  color: #ddd;
+}
+
+h1, h2 { margin: 0 }
 
 main{
     margin: 0 auto;

@@ -10,14 +10,15 @@
     <script src="js/tokenizer.js"></script>
     <script src="js/logo.js"></script>
     <script src="js/init.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
   <body onload="init(); clearcanvas(); turtle_setup(); run(1,false);">
     <main>
 
       <header>
-        <h1>papert&#8213;logo in your browser, 2017 version</h1>
-        <p>
+      <h1>papert&#8213;logo in your browser, 2017 version</h1>
+      <h2 id="dev">this is your development version. See <a href="http://bjelline.pages.mediacube.at/parsing-logo-solution/">demo</a> for a running version.</h2>
+        <p>Example Programs:
           <a href="programs/square1.txt">square1</a> | 
           <a href="programs/square2.txt">square2</a> | 
           <a href="programs/square3.txt">square3</a> | 
@@ -37,6 +38,8 @@
         <textarea name="code" id="code" rows="80" cols="20" spellcheck="false"></textarea>
 
         <div>
+          <input type="button" onClick="location='jasmine/SpecRunner.html'" value="tests">
+
           <input type="button" onClick="tokenize()" value="tokenize">
           <input type="button" onClick="run(25,true);" value="run slowly">
           <input type="button" onClick="run(5,false);" value="run normally" style="font-weight: bold;">
