@@ -20,7 +20,7 @@ class Tokenizer {
   }
 
   next() {
-    return new Token('error', `I cant understand ${this.text}`);
+    return new Token('eof', '');
   }
 }
 
