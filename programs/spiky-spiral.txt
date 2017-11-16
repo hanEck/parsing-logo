@@ -8,7 +8,7 @@ to spiral :w :a :x :c :ww
   bw :w
   rt :x
   fw :w
-  pd 
+  pd
   rt :a
   spiral :w +1 :a :x+0.7 :c -1 :ww + 0.1
 end
