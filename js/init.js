@@ -41,7 +41,7 @@ function init(canvas_id = 'canvas', text_output_id = 'textOutput', turtle_id = '
   sprite = document.getElementById(turtle_id);
   textOutput = document.getElementById(text_output_id);
   code = document.getElementById(code_id);
-  links = document.querySelectorAll(`${link_holder} a`);
+  let links = document.querySelectorAll(`${link_holder} a`);
   // console.log(`searching for links: '${link_holder} a', found ${links.length}`);
   for (const l of links) {
     l.addEventListener('click', loadProgram);
