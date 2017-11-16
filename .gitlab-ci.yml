@@ -1,0 +1,8 @@
+pages:
+  stage: deploy
+  artifacts:
+    paths:
+    - /
+  only:
+  - solution
+
