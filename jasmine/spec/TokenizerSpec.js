@@ -68,5 +68,62 @@ describe("Tokenizer",function(){
     expect(token.data).toEqual('aword');
   });
 
+  it('can tokenize to and end as operators', () => {
+    let token;
+    for (code of ["TO square END", "to square\n end"]) {
+      tokenizer.load( code );
+      token = tokenizer.next();
+      expect(token.type).toEqual('ops');
+      expect(token.data).toEqual('to');
+      token = tokenizer.next();
+      expect(token.type).toEqual('wrd');
+      expect(token.data).toEqual('square');
+      token = tokenizer.next();
+      expect(token.type).toEqual('ops');
+      expect(token.data).toEqual('end');
+    }
+  });
+
+  it('can tokenize operators', () => {
+    for( o of [ '!=', '<>', '<=', '>=', '<', '>', '+', '-', '*', '/', '%', '=',
+                '[', ']', '(', ')' ] ) {
+      tokenizer.load(o);
+      let token;
+      token = tokenizer.next();
+      expect(token.type).toEqual('ops');
+      expect(token.data).toEqual(o);
+    }
+  });
+
+  it('can tokenize variables', () => {
+    for( w of [ ':a', ':longvar' ] ) {
+      tokenizer.load(w);
+      let token;
+      token = tokenizer.next();
+      expect(token.type).toEqual('var');
+      expect(token.data).toEqual(w.substr(1));
+    }
+  });
+
+  it('can tokenize numbers', () => {
+    for( w of [ '3', '3.141', '50000' ] ) {
+      tokenizer.load(w);
+      let token;
+      token = tokenizer.next();
+      expect(token.type).toEqual('num');
+      expect(token.data).toEqual(parseFloat(w));
+    }
+  });
+
+
+  it('can tokenize symbols', () => {
+    for( w of [ '"a', '"long' ] ) {
+      tokenizer.load(w);
+      let token;
+      token = tokenizer.next();
+      expect(token.type).toEqual('sym');
+      expect(token.data).toEqual(w.substr(1));
+    }
+  });
 });
 
