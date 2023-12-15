@@ -17,7 +17,17 @@
 
       <header>
       <h1>papert&#8213;logo in your browser, 2017 version</h1>
-      <h2 id="dev">this is your development version. Run <a href="jasmine/SpecRunner.html">Jasmine Tests</a>. See <a href="http://bjelline.pages.mediacube.at/parsing-logo-solution/">demo</a> for a running version.</h2>
+      <h2 id="dev" style="display:none;">This is your development version. Run <a href="jasmine/SpecRunner.html">Jasmine Tests</a>. See 
+      the <a href="https://users.multimediatechnology.at/~bjelline/parsing-logo-solution/index.html">demo</a>,
+              go get the <a href="https://gitlab.mediacube.at/bjelline/parsing-logo">source code</a> to start with.</h2>
+
+      <h2 style="color:red;" id="warn_file">This must be run on a webserver!  <br>The url can be http://localhost.... but file:... will not work</h2>
+      <script>
+	if( document.location.protocol == 'http:' || document.location.protocol == 'https:' ) {
+		document.getElementById('warn_file').style.setProperty('display', 'none');
+		document.getElementById('dev').style.setProperty('display', 'block');
+	}
+      </script>
         <p>Example Programs:
           <a href="programs/square1.txt">square1</a> | 
           <a href="programs/square2.txt">square2</a> | 
