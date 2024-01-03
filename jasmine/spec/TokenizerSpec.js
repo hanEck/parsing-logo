@@ -15,7 +15,6 @@ describe("Tokenizer",function(){
     tokenizer.load("right 10");
     let token;
     token = tokenizer.next();
-    console.log(token instanceof Token);
     expect(token instanceof Token).toBeTruthy();
     expect(token.type).toEqual('wrd');
     expect(token.data).toEqual('right');
@@ -98,6 +97,7 @@ describe("Tokenizer",function(){
   it('can tokenize variables', () => {
     for( w of [ ':a', ':longvar' ] ) {
       tokenizer.load(w);
+
       let token;
       token = tokenizer.next();
       expect(token.type).toEqual('var');
