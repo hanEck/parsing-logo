@@ -39,6 +39,11 @@ class Tokenizer {
       "(",
       ")",
     ];
+    // Create a dynamic regular expression from the operators array
+    const operatorRegex = new RegExp(
+      `(${operators.map((op) => `\\${op}`).join("|")})`,
+      "g"
+    );
 
     let lines = text.split("\n");
     for (let line of lines) {
@@ -46,6 +51,8 @@ class Tokenizer {
       if (line.trim().startsWith(";")) continue;
       // Ignore empty lines
       if (line.trim().length == 0) continue;
+      // Add spaces around operators
+      line = line.replace(operatorRegex, " $1 ");
       // Split the line into words
       let words = line.trim().toLowerCase().split(/\s+/);
       for (let word of words) {
@@ -55,11 +62,9 @@ class Tokenizer {
           this.tokens.push(new Token("ops", word));
         } else if (word.startsWith(":")) {
           this.tokens.push(new Token("var", word.substring(1)));
-        } 
-        else if (word.startsWith('"')) {
+        } else if (word.startsWith('"')) {
           this.tokens.push(new Token("sym", word.substring(1)));
-        }
-        else {
+        } else {
           this.tokens.push(new Token("wrd", word));
         }
       }

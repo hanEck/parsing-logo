@@ -69,6 +69,7 @@ describe("Parser",function(){
     expect(command.data).toEqual('make');
     expect(command.args.length).toEqual(2);
 
+
     argument = command.args[0];
     expect(argument instanceof Token).toBeTruthy();
     expect(argument.type).toEqual('sym');
@@ -82,13 +83,13 @@ describe("Parser",function(){
 
   it('can parse maths expression with ()', () => {
     tokenizer.load("2 * (10 + 3.141)");
+    console.log(tokenizer.tokens);
     parser.addInfix('+',40);
     parser.addInfix('*',20);
     parser.load(tokenizer);
 
     let command, argument, subcommand;
     command = parser.next();
-    console.log(command);
     expect(command instanceof Token).toBeTruthy();
     expect(command.type).toEqual('ops');
     expect(command.data).toEqual('*');
@@ -206,9 +207,5 @@ describe("Parser",function(){
     expect(token.type).toEqual('wrd');
     expect(token.data).toEqual('punkt');
   });
-
-//  if :c = 0 [stop]
-// color [255-:d*5 0+:d*20 0+:d*50]
-
 });
 
