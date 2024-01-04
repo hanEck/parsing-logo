@@ -21,7 +21,6 @@ describe("Parser",function(){
 
     let command, argument;
     command = parser.next();
-    console.log(command);
     expect(command instanceof Token).toBeTruthy();
     expect(command.type).toEqual('wrd');
     expect(command.data).toEqual('right');
@@ -40,7 +39,6 @@ describe("Parser",function(){
 
     let command, argument;
     command = parser.next();
-    console.log(command);
     expect(command instanceof Token).toBeTruthy();
     expect(command.type).toEqual('ops');
     expect(command.data).toEqual('+');
